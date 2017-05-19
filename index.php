@@ -2,8 +2,8 @@
 /**
  * @Author: Oliver Bob Lagumen
  * @Date:   2017-05-13 09:58:30
- * @Last Modified by:   Oliver Bob Lagumen
- * @Last Modified time: 2017-05-18 23:41:05
+ * @Last Modified by:   Oliver Bob  Lagumen
+ * @Last Modified time: 2017-05-19 08:24:20
  */
 
 require_once('helpers/MysqliDb.php');
@@ -121,31 +121,34 @@ if ($db->count > 0){
 			\"</table>\"+
 		\"</div>\");
 		jQuery(function($){
-			var apiUrl = 'daily_report_data.php?date=$date';
+			var apiUrl = 'daily_report_data.php?date=$date&status=$status';
 			$('.footable_$count').footable({
 				'toggleColumn': 'first',
 				'expandFirst': true,
 				'columns': 
 				[
-					{ 'name': 'first_name','title':'First Name','style':{'maxWidth':200,'overflow':'hidden','textOverflow':'ellipsis','wordBreak':'keep-all','whiteSpace':'nowrap'}}, // 5
+					{ 'name': 'registration_count','title':'Registration Count','style':{'maxWidth':200,'overflow':'hidden','textOverflow':'ellipsis','wordBreak':'keep-all','whiteSpace':'nowrap'}}, // 5					
+					//{ 'name': 'table_id','title': 'ID' ,'breakpoints':'xs sm','type':'text','style':{'width':250,'maxWidth':250}}, // 0
+		            //{ 'name': 'broker_id','title':'BrokerID','breakpoints':'xs sm'}, // 1
+		            //{ 'name': 'agent_id','title':'AgentID','breakpoints':'xs sm'}, // 2
+		            //{ 'name': 'website' ,'title':'Website','breakpoints':'xs sm','style':{'maxWidth':250,'overflow':'hidden','textOverflow':'ellipsis','wordBreak':'keep-all','whiteSpace':'nowrap'}}, // 3
+		            //{ 'name': 'company_name','title':'Company Name','breakpoints':'xs sm','style':{'maxWidth':200,'overflow':'hidden','textOverflow':'ellipsis','wordBreak':'keep-all','whiteSpace':'nowrap'}}, // 4
+		            { 'name': 'first_name','title':'First Name','style':{'maxWidth':200,'overflow':'hidden','textOverflow':'ellipsis','wordBreak':'keep-all','whiteSpace':'nowrap'}}, // 5
 		            { 'name': 'last_name','title': 'last Name','style':{'maxWidth':200,'overflow':'hidden','textOverflow':'ellipsis','wordBreak':'keep-all','whiteSpace':'nowrap'}}, // 6
 		            { 'name': 'email','title':'Email','breakpoints':'xs sm','style':{'maxWidth':200,'overflow':'hidden','textOverflow':'ellipsis','wordBreak':'keep-all','whiteSpace':'nowrap'}}, // 7
-		            { 'name': 'timestamp','title':'Date','type':'date','breakpoints':'xs sm md','formatString':'DD MMM YYYY'}, // 8
 		            { 'name': 'invitation_status','title':'Status','breakpoints':'xs sm','style':{'maxWidth':200,'overflow':'hidden','textOverflow':'ellipsis','wordBreak':'keep-all','whiteSpace':'nowrap'}}, // 9
 		            { 'name': 'invited_on','title': 'Invited on','type':'date','breakpoints':'xs sm','formatString':'DD MMM YYYY'}, // 10
-		            { 'name': 'active_on','title': 'Activated on','type':'date','breakpoints':'xs sm','formatString':'DD MMM YYYY'} // 11
+		            { 'name': 'active_on','title': 'Activated on','type':'date','breakpoints':'xs sm','formatString':'DD MMM YYYY'},
+		            { 'name': 'mail_open','title': 'Mail Opened','type':'date','breakpoints':'xs sm','formatString':'DD MMM YYYY'}, // 11 // 11
+		            { 'name': 'mail_click','title': 'Mail Clicked','type':'date','breakpoints':'xs sm','formatString':'DD MMM YYYY'} // 11
 				],
-				'pages' : 20,
 				'paging': {
-					'enabled' : true
+					'enabled' : false
 				},
 				'filtering' : {
 					'enabled' : true
 				},
 				'sorting': {
-					'enabled': true
-				},
-				'editing': {
 					'enabled': true
 				},
 				'rows': $.ajax({
