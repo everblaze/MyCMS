@@ -3,7 +3,7 @@
  * @Author: Oliver Bob Lagumen
  * @Date:   2017-05-13 09:58:30
  * @Last Modified by:   Oliver Bob  Lagumen
- * @Last Modified time: 2017-05-19 08:24:20
+ * @Last Modified time: 2017-05-19 08:47:47
  */
 
 require_once('helpers/MysqliDb.php');
@@ -117,7 +117,7 @@ if ($db->count > 0){
 
 		$('body').append(\"<a href='#' style='margin-left:20px; font-size;' class='export_$count btn btn-success'>Export Table data into Excel</a> <b>{$user['active']} $status on $date</b>\"+
 		\"<div id='dvData_$count'>\"+
-			\"<table class='footable_$count table table-striped footable-filtering footable-filtering-right  breakpoint-lg' style='display: table;' data-page-size='20'>\"+
+			\"<table class='footable_$count table table-striped footable-filtering footable-filtering-right  breakpoint-lg' style='display: table;' data-page-size='10'>\"+
 			\"</table>\"+
 		\"</div>\");
 		jQuery(function($){
@@ -143,7 +143,8 @@ if ($db->count > 0){
 		            { 'name': 'mail_click','title': 'Mail Clicked','type':'date','breakpoints':'xs sm','formatString':'DD MMM YYYY'} // 11
 				],
 				'paging': {
-					'enabled' : false
+					'enabled' : true,
+					'size': 20
 				},
 				'filtering' : {
 					'enabled' : true
@@ -157,6 +158,8 @@ if ($db->count > 0){
 					size: 20
 				})
 			});
+
+
 
 
 			// This must be a hyperlink
@@ -174,8 +177,9 @@ if ($db->count > 0){
 
 
 
-
-
+			/*var ftbl = FooTable.get('.footable_$count');
+			ftbl.use(FooTable.Paging).size = '20';
+			ftbl.draw();*/
 
 
 
