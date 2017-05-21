@@ -3,19 +3,46 @@ var siteUrl = window.location.protocol+"//"+window.location.host + "/mycms/";
 
 requirejs.config({
 
-	baseUrl: siteUrl + "src/js/mod/",
+	baseUrl: siteUrl + "src/js/",
     paths: {
-        'jquery': 'require-jquery',
-        'moment' : 'moment.min',
-        'bootstrap' : 'bootstrap-4.0.0-alpha.6-dist/js/bootstrap',
-        'datetimepicker' : 'bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/bootstrap-datetimepicker.min',
-        'domReady' : 'domReady',
-        'window' : 'window',
-        'tether' : 'bootstrap-4.0.0-alpha.6-dist/plugins/tether/tether.min',
-        'tooltip' : 'bootstrap-4.0.0-alpha.6-dist/plugins/tether/tooltip',
+        'jquery': 'mod/require-jquery',
+        // 'jquery': 'vendors/jquery/dist/jquery.min',
+        //'moment' : 'mod/moment.min',
+        //'bootstrap' : 'mod/bootstrap-4.0.0-alpha.6-dist/js/bootstrap',
+        'datetimepicker' : 'mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/bootstrap-datetimepicker.min',
+        'domReady' : 'mod/domReady',
+        'window' : 'mod/window',
+        'tether' : 'mod/bootstrap-4.0.0-alpha.6-dist/plugins/tether/tether.min',
+        'tooltip' : 'mod/bootstrap-4.0.0-alpha.6-dist/plugins/tether/tooltip',
 
 
-        'footable': 'footable/js/footable.min'
+        'footable': 'mod/footable/js/footable.min',
+        'chatbody': 'mod/chatbody',
+
+        'bootstrap' : 'vendors/bootstrap/dist/js/bootstrap.min',
+        'fastclick' : 'vendors/fastclick/lib/fastclick',
+        'chart' : 'vendors/Chart.js/dist/Chart.min',
+        'gauge' : 'vendors/gauge.js/dist/gauge.min',
+        'nbootstrap-progressbar' : 'vendors/bootstrap-progressbar/bootstrap-progressbar.min',
+        iCheck : 'vendors/iCheck/icheck.min',
+        nprogress : 'vendors/nprogress/nprogress',
+        skycons : 'vendors/skycons/skycons',
+        flot : 'vendors/Flot/jquery.flot',
+        pie : 'vendors/Flot/jquery.flot.pie',
+        time : 'vendors/Flot/jquery.flot.time',
+        stack : 'vendors/Flot/jquery.flot.stack',
+        resize : 'vendors/Flot/jquery.flot.resize',
+        orderBars : 'vendors/flot.orderbars/js/jquery.flot.orderBars',
+        spline : 'vendors/flot-spline/js/jquery.flot.spline.min',
+        curvedLines : 'vendors/flot.curvedlines/curvedLines',
+        date : 'vendors/DateJS/build/date',
+        vmap : 'vendors/jqvmap/dist/jquery.vmap',
+        world : 'vendors/jqvmap/dist/maps/jquery.vmap.world',
+        sampledata : 'vendors/jqvmap/examples/js/jquery.vmap.sampledata',
+        moment : 'vendors/moment/min/moment.min',
+        daterangepicker : 'vendors/bootstrap-daterangepicker/daterangepicker',
+        custom : 'build/js/custom'
+
         /*'footable.core' : 'footable/js/footable.core.min',
         'footable.editing' : 'footable/js/footable.editing.min',        
         'footable.filtering': 'footable/js/footable.filtering.min',
@@ -28,9 +55,6 @@ requirejs.config({
     	footable:{
     		exports: 'footable'
     	},
-    	moment: {
-    		exports: 'moment'
-    	},
         bootstrap: {
             exports: 'bootstrap'
         },
@@ -38,11 +62,84 @@ requirejs.config({
             exports: 'tether'
         },
         tooltip: {
-            exports: 'tooltip'
+            exports: 'tooltip',
+            deps: ['jquery']
         },
         bootstrap: {deps: ['jquery']},
-
+        chatbody: {
+            exports: 'chatbody'
+            //deps: ['bootstrap']
+        },
         footable: {deps: ['jquery']},
+        fastclick: {deps: ['jquery']},
+        chart: {deps: ['jquery']},
+        gauge: {deps: ['jquery']},
+        'nbootstrap-progressbar': {deps: ['jquery']},
+        iCheck: {
+            exports: 'iCheck',
+            deps: ['jquery']
+        },
+        skycons: {
+            deps: ['jquery']
+        }, 
+        stack: {deps: ['jquery', 'flot'], exports : 'stack'},
+        resize: {deps: ['jquery', 'flot'], exports : 'resize'},
+        orderBars: {deps: ['jquery', 'flot'], exports : 'orderBars'},
+        spline: {deps: ['jquery', 'flot'], exports : 'spline'},
+        date: {deps: ['jquery']},
+        vmap: {deps: ['jquery']},
+        world: {deps: ['jquery', 'vmap']},
+        sampledata: {deps: ['jquery','vmap']},
+        moment: {
+            exports: 'moment'
+        },
+        daterangepicker: {
+            exports : 'datetimepicker',
+            deps: ['moment']
+        },
+        flot: {
+            exports : 'flot',
+            deps: ['jquery']
+        },
+        curvedLines: {
+            exports: 'curvedLines',
+            deps: ['jquery','flot']
+        },
+        curvedLines: {
+            exports: 'curvedLines',            
+            deps: ['jquery','flot']
+        },          
+        'pie': {            
+            exports : 'pie',
+            deps: ['jquery', 'flot']
+        },
+        'time': {
+            deps: ['flot', 'jquery'], 
+            exports : 'time'
+        },
+        custom: {
+            exports: 'custom',
+            deps: ['bootstrap',
+            'tooltip', 
+            'nprogress', 
+            'nbootstrap-progressbar', 
+            'iCheck' , 
+            'skycons',
+            'fastclick',
+            'chart',
+            'gauge',
+            'skycons',
+            'date',
+            'curvedLines',
+            'flot',
+            'time',
+            'pie', 
+            'stack',
+            'resize',
+            'orderBars',
+            'spline'
+            ]
+        }
 
         // deps: (['footable', 'moment', 'bootstrap', 'jquery']), 
         // callback: function(){
@@ -73,48 +170,4 @@ requirejs.config({
     ],*/
     priority: ['jquery']
 });
-
-// my module
-define('app', function(require, exports, module){
-	require('require-jquery');
-	require('moment');
-	require('footable');
-    require('datetimepicker');
-    var domReady = require('domReady');
-    var window = require('window');
-
-    var domReady = require('domReady');
-    domReady(function () {
-        //This function is called once the DOM is ready.
-        //It will be safe to query the DOM and manipulate
-        //DOM nodes in this function.
-        //alert('barn');
-    });
-
-	//$ = $_;
-	_revealed = function(){
-		//return $('body').append("I'm all good!<br />");
-	};
-	exports.init = function(){
-		_revealed();
-		
-	};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-});
-
-
 
