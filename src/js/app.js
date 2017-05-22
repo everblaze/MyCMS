@@ -27,22 +27,12 @@ define('app', function(require, exports, module){
     
     //require('moment');
     //require('daterangepicker');
-    require('custom');
+    
 
     
     var domReady = require('domReady');
 
-    domReady(function () {
-        //This function is called once the DOM is ready.
-        //It will be safe to query the DOM and manipulate
-        //DOM nodes in this function.
-        //alert('barn');
 
-        
-
-
-
-    });
 
     //var window = require('window');
 
@@ -51,12 +41,9 @@ define('app', function(require, exports, module){
     //$ = $_;
     _revealed = function(){
 
-
-        require('chatbody');
-
-
+        // If loading chatbody as a js string...
+        /*require('chatbody');
         $('body').append(window.chatbody);
-
         $(function(){
             $("#addClass").click(function () {
                 $('#qnimate').addClass('popup-box-on');
@@ -65,7 +52,21 @@ define('app', function(require, exports, module){
             $("#removeClass").click(function () {
                 $('#qnimate').removeClass('popup-box-on');
             });
+        });*/
+
+
+        domReady(function () {
+            //This function is called once the DOM is ready.
+            //It will be safe to query the DOM and manipulate
+            //DOM nodes in this function.
+            //alert('barn');
+
+            
+            require('custom');
+
+
         });
+        
     };
 
     exports.init = function(){

@@ -6,8 +6,8 @@
 /**
  * @Author: Oliver Bob Lagumen
  * @Date:   2017-05-13 09:58:30
- * @Last Modified by:   Oliver Bob Lagumen
- * @Last Modified time: 2017-05-20 15:45:43
+ * @Last Modified by:   Oliver Bob  Lagumen
+ * @Last Modified time: 2017-05-22 08:32:34
  */
 
 require_once('helpers/MysqliDb.php');
@@ -1080,7 +1080,7 @@ if($status=='pending'){
 <script>
 
 function onBodyLoaded() {
-    require(["app"], function (app) {
+    require(["app", "text!templates/chatbody.html"], function (app, chatbody) {
 
 	/*require('bootstrap');
     require('require-jquery');
@@ -1090,6 +1090,17 @@ function onBodyLoaded() {
 
     //require('moment');
     //require('datetimepicker');
+
+    	$('body').append(chatbody);
+		$(function(){
+            $("#addClass").click(function () {
+                $('#qnimate').addClass('popup-box-on');
+            });
+
+            $("#removeClass").click(function () {
+                $('#qnimate').removeClass('popup-box-on');
+            });
+        });
 
 
     	//alert(moment().format('dddd, MMMM Do YYYY, h:mm:ss a'));

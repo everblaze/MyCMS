@@ -41,7 +41,8 @@ requirejs.config({
         sampledata : 'vendors/jqvmap/examples/js/jquery.vmap.sampledata',
         moment : 'vendors/moment/min/moment.min',
         daterangepicker : 'vendors/bootstrap-daterangepicker/daterangepicker',
-        custom : 'build/js/custom'
+        custom : 'build/js/custom',
+        templates: 'templates'
 
         /*'footable.core' : 'footable/js/footable.core.min',
         'footable.editing' : 'footable/js/footable.editing.min',        
@@ -139,6 +140,10 @@ requirejs.config({
             'orderBars',
             'spline'
             ]
+        },
+
+        templates: {
+            exports: 'templates'
         }
 
         // deps: (['footable', 'moment', 'bootstrap', 'jquery']), 
@@ -170,4 +175,5 @@ requirejs.config({
     ],*/
     priority: ['jquery']
 });
+
 
