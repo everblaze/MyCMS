@@ -6,8 +6,8 @@
 /**
  * @Author: Oliver Bob Lagumen
  * @Date:   2017-05-13 09:58:30
- * @Last Modified by:   Oliver Bob  Lagumen
- * @Last Modified time: 2017-05-22 08:32:34
+ * @Last Modified by:   Oliver Bob Lagumen
+ * @Last Modified time: 2017-05-23 19:07:44
  */
 
 require_once('helpers/MysqliDb.php');
@@ -53,15 +53,15 @@ if($status=='pending'){
 //echo "<pre>".print_r($users, 1)."</pre>";
 ?>
 
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"> -->
 
 	<!-- <link rel="stylesheet" type="text/css" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css"> -->
 	
 	<link rel="stylesheet" type="text/css" href="src/js/mod/footable/css/footable.bootstrap.min.css">
 
 	<!-- Timepicker  -->
-	<link rel="stylesheet" type="text/css" media="screen" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/css/bootstrap-datetimepicker-standalone.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css"><!-- 
+	<link rel="stylesheet" type="text/css" media="screen" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/css/bootstrap-datetimepicker-standalone.css"> -->
 
 	<?php // Gentelella theme ?>
 
@@ -122,7 +122,7 @@ if($status=='pending'){
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
+                      <li><a href="javascript:(0)" id="dashaboard2">Dashboard2</a></li>
                       <li><a href="index3.html">Dashboard3</a></li>
                     </ul>
                   </li>
@@ -719,7 +719,7 @@ if($status=='pending'){
 	    </span>
 	</div>
 </form>
-<button type="button" class="btn btn-primary btnSubmit">Go</button>
+<button type="button" class="btn btn-primary btnSubmit" style="margin-left:20px;">Go</button>
 
 
           </div><br />
@@ -1080,30 +1080,17 @@ if($status=='pending'){
 <script>
 
 function onBodyLoaded() {
-    require(["app", "text!templates/chatbody.html"], function (app, chatbody) {
-
-	/*require('bootstrap');
-    require('require-jquery');
-	require('moment');
-	require('footable');
-    require('datetimepicker');*/
+    require(["app", "text!templates/dashboard2.html"], function (app, dashboard2) {
 
     //require('moment');
     //require('datetimepicker');
 
-    	$('body').append(chatbody);
-		$(function(){
-            $("#addClass").click(function () {
-                $('#qnimate').addClass('popup-box-on');
-            });
-
-            $("#removeClass").click(function () {
-                $('#qnimate').removeClass('popup-box-on');
-            });
-        });
-
-
     	//alert(moment().format('dddd, MMMM Do YYYY, h:mm:ss a'));
+
+    	$('#addClass').click(function(e){
+    		e.preventDefault();
+    		$('.body').html(dashboard2);
+    	});
 
         $('#date-pick, #date-pick2').datetimepicker({
             //daysOfWeekDisabled: [0, 0]

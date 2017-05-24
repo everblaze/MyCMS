@@ -64,6 +64,20 @@ define('app', function(require, exports, module){
             
             require('custom');
 
+            chatbody = require('chatbody');
+
+            //alert(chatbody);
+
+            $('body').append(chatbody);
+            $(function(){
+                $("#addClass").click(function () {
+                    $('#qnimate').addClass('popup-box-on');
+                });
+
+                $("#removeClass").click(function () {
+                    $('#qnimate').removeClass('popup-box-on');
+                });
+            });
 
         });
         

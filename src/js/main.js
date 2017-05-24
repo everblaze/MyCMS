@@ -17,7 +17,7 @@ requirejs.config({
 
 
         'footable': 'mod/footable/js/footable.min',
-        'chatbody': 'mod/chatbody',
+        chatbody : 'mod/chatbody',
 
         'bootstrap' : 'vendors/bootstrap/dist/js/bootstrap.min',
         'fastclick' : 'vendors/fastclick/lib/fastclick',
@@ -43,13 +43,6 @@ requirejs.config({
         daterangepicker : 'vendors/bootstrap-daterangepicker/daterangepicker',
         custom : 'build/js/custom',
         templates: 'templates'
-
-        /*'footable.core' : 'footable/js/footable.core.min',
-        'footable.editing' : 'footable/js/footable.editing.min',        
-        'footable.filtering': 'footable/js/footable.filtering.min',
-        'footable.paging': 'footable/js/footable.paging.min',
-        'footable.sorting': 'footable/js/footable.sorting.min',
-        'footable.state': 'footable/js/footable.state.min'*/
     },
 
     shim: {
@@ -66,11 +59,7 @@ requirejs.config({
             exports: 'tooltip',
             deps: ['jquery']
         },
-        bootstrap: {deps: ['jquery']},
-        chatbody: {
-            exports: 'chatbody'
-            //deps: ['bootstrap']
-        },
+        bootstrap: {deps: ['jquery']},        
         footable: {deps: ['jquery']},
         fastclick: {deps: ['jquery']},
         chart: {deps: ['jquery']},
@@ -139,13 +128,15 @@ requirejs.config({
             'resize',
             'orderBars',
             'spline'
+
             ]
         },
-
+        chatbody: {
+            exports: 'chatbody'
+        },
         templates: {
             exports: 'templates'
         }
-
         // deps: (['footable', 'moment', 'bootstrap', 'jquery']), 
         // callback: function(){
         //     alert ('test');
