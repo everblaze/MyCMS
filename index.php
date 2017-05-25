@@ -6,14 +6,14 @@
 /**
  * @Author: Oliver Bob Lagumen
  * @Date:   2017-05-13 09:58:30
- * @Last Modified by:   Oliver Bob  Lagumen
- * @Last Modified time: 2017-05-22 08:32:34
+ * @Last Modified by:   Oliver Bob Lagumen
+ * @Last Modified time: 2017-05-23 19:07:44
  */
 
 require_once('helpers/MysqliDb.php');
 
 /*$cols = Array (
-    "invited_on", 
+    "invited_on",
     "active_on"
     );*/
 
@@ -24,9 +24,9 @@ require_once('helpers/MysqliDb.php');
 
 if($status=='pending'){
 
-	$users = $db->rawQuery('SELECT COUNT(u.invited_on) AS active, 
-		DATE(u.invited_on) AS invited_on 
-		FROM user_invitation u 
+	$users = $db->rawQuery('SELECT COUNT(u.invited_on) AS active,
+		DATE(u.invited_on) AS invited_on
+		FROM user_invitation u
 		WHERE invitation_status = "pending"
 		GROUP BY DATE(u.invited_on) LIMIT 1'
 	);
@@ -37,9 +37,9 @@ if($status=='pending'){
 	';
 
 } else {
-	$users = $db->rawQuery('SELECT COUNT(u.active_on) AS active, 
-		DATE(u.active_on) AS active_on 
-		FROM user_invitation u 
+	$users = $db->rawQuery('SELECT COUNT(u.active_on) AS active,
+		DATE(u.active_on) AS active_on
+		FROM user_invitation u
 		WHERE invitation_status = "active"
 		GROUP BY DATE(u.active_on) LIMIT 5'
 	);
@@ -53,15 +53,15 @@ if($status=='pending'){
 //echo "<pre>".print_r($users, 1)."</pre>";
 ?>
 
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"> -->
 
 	<!-- <link rel="stylesheet" type="text/css" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css"> -->
-	
+
 	<link rel="stylesheet" type="text/css" href="src/js/mod/footable/css/footable.bootstrap.min.css">
 
 	<!-- Timepicker  -->
-	<link rel="stylesheet" type="text/css" media="screen" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/css/bootstrap-datetimepicker-standalone.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css"><!--
+	<link rel="stylesheet" type="text/css" media="screen" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/css/bootstrap-datetimepicker-standalone.css"> -->
 
 	<?php // Gentelella theme ?>
 
@@ -73,7 +73,7 @@ if($status=='pending'){
     <link href="src/js/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="src/js/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	
+
     <!-- bootstrap-progressbar -->
     <link href="src/js/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -122,7 +122,7 @@ if($status=='pending'){
                   <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.html">Dashboard</a></li>
-                      <li><a href="index2.html">Dashboard2</a></li>
+                      <li><a href="javascript:(0)" id="dashaboard2">Dashboard2</a></li>
                       <li><a href="index3.html">Dashboard3</a></li>
                     </ul>
                   </li>
@@ -210,7 +210,7 @@ if($status=='pending'){
                         <li><a href="#level1_2">Level One</a>
                         </li>
                     </ul>
-                  </li>                  
+                  </li>
                   <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
               </div>
@@ -332,7 +332,7 @@ if($status=='pending'){
                 <li>
 			<a href="#" id="addClass">
 				<span class="glyphicon glyphicon-comment"></span> Chat
-				<span class="badge bg-red">7</span> 
+				<span class="badge bg-red">7</span>
 			</a>
 
 				</li>
@@ -345,7 +345,7 @@ if($status=='pending'){
         <!-- page content -->
         <div class="right_col" role="main">
 
-        	
+
           <!-- top tiles -->
           <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
@@ -719,7 +719,7 @@ if($status=='pending'){
 	    </span>
 	</div>
 </form>
-<button type="button" class="btn btn-primary btnSubmit">Go</button>
+<button type="button" class="btn btn-primary btnSubmit" style="margin-left:20px;">Go</button>
 
 
           </div><br />
@@ -948,7 +948,7 @@ if($status=='pending'){
                   </div>
                 </div>
                 <!-- End to do list -->
-                
+
                 <!-- start of weather widget -->
                 <div class="col-md-6 col-sm-6 col-xs-12">
                   <div class="x_panel">
@@ -1080,30 +1080,17 @@ if($status=='pending'){
 <script>
 
 function onBodyLoaded() {
-    require(["app", "text!templates/chatbody.html"], function (app, chatbody) {
-
-	/*require('bootstrap');
-    require('require-jquery');
-	require('moment');
-	require('footable');
-    require('datetimepicker');*/
+    require(["app", "text!templates/dashboard2.html"], function (app, dashboard2) {
 
     //require('moment');
     //require('datetimepicker');
 
-    	$('body').append(chatbody);
-		$(function(){
-            $("#addClass").click(function () {
-                $('#qnimate').addClass('popup-box-on');
-            });
-
-            $("#removeClass").click(function () {
-                $('#qnimate').removeClass('popup-box-on');
-            });
-        });
-
-
     	//alert(moment().format('dddd, MMMM Do YYYY, h:mm:ss a'));
+
+    	$('#addClass').click(function(e){
+    		e.preventDefault();
+    		$('.right_col').html(dashboard2);
+    	});
 
         $('#date-pick, #date-pick2').datetimepicker({
             //daysOfWeekDisabled: [0, 0]
@@ -1134,9 +1121,9 @@ function onBodyLoaded() {
 					$('.footable_$count').footable({
 						'toggleColumn': 'first',
 						'expandFirst': true,
-						'columns': 
+						'columns':
 						[
-							{ 'name': 'registration_count','title':'Registration Count','style':{'maxWidth':200,'overflow':'hidden','textOverflow':'ellipsis','wordBreak':'keep-all','whiteSpace':'nowrap'}}, // 5					
+							{ 'name': 'registration_count','title':'Registration Count','style':{'maxWidth':200,'overflow':'hidden','textOverflow':'ellipsis','wordBreak':'keep-all','whiteSpace':'nowrap'}}, // 5
 							//{ 'name': 'table_id','title': 'ID' ,'breakpoints':'xs sm','type':'text','style':{'width':250,'maxWidth':250}}, // 0
 				            //{ 'name': 'broker_id','title':'BrokerID','breakpoints':'xs sm'}, // 1
 				            //{ 'name': 'agent_id','title':'AgentID','breakpoints':'xs sm'}, // 2
@@ -1246,7 +1233,7 @@ function exportTableToCSV($table, filename) {
       window.navigator.msSaveBlob(blob, filename);
 
     } else if (window.Blob && window.URL) {
-      // HTML5 Blob        
+      // HTML5 Blob
       var blob = new Blob([csv], {
         type: 'text/csv;charset=utf-8'
       });

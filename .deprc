@@ -1,0 +1,7 @@
+{
+  "root": "src/js",
+  "styles_root": "src/js",
+  "require_config": "src/js/main.js",
+  "build_config": "path/to/requirejs/build.json",
+  "exclude": ['jquery.js', 'require.js', 'vendor']
+}
