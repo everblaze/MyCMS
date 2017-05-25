@@ -6,8 +6,8 @@
 /**
  * @Author: Oliver Bob Lagumen
  * @Date:   2017-05-13 09:58:30
- * @Last Modified by:   Oliver Bob Lagumen
- * @Last Modified time: 2017-05-23 19:07:44
+ * @Last Modified by:   oliverbob
+ * @Last Modified time: 2017-05-25 09:40:07
  */
 
 require_once('helpers/MysqliDb.php');
@@ -60,8 +60,8 @@ if($status=='pending'){
 	<link rel="stylesheet" type="text/css" href="src/js/mod/footable/css/footable.bootstrap.min.css">
 
 	<!-- Timepicker  -->
-	<link rel="stylesheet" type="text/css" media="screen" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css"><!--
-	<link rel="stylesheet" type="text/css" media="screen" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/css/bootstrap-datetimepicker-standalone.css"> -->
+
+	<link rel="stylesheet" type="text/css" media="screen" href="src/js/mod/bootstrap-4.0.0-alpha.6-dist/plugins/datetimepicker/css/bootstrap-datetimepicker.min.css">
 
 	<?php // Gentelella theme ?>
 
@@ -1089,7 +1089,11 @@ function onBodyLoaded() {
 
     	$('#addClass').click(function(e){
     		e.preventDefault();
+
     		$('.right_col').html(dashboard2);
+
+    		$('.body').html(dashboard2);
+
     	});
 
         $('#date-pick, #date-pick2').datetimepicker({
