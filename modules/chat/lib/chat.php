@@ -9,11 +9,13 @@
 
 
 session_start();
-// header('Content-Type: application/json');
+header('Content-Type: application/json');
 require_once('helpers.php');
 //$id = str_rand(30, 'numeric');
 
 // Please don't create sessions here, as it is not wise due to performance reasons.
+
+$_SESSION['user_id']=6;
 
 $user = $_SESSION['user_id'];
 $rem = $_REQUEST['chatter_id']; // should be present in each request

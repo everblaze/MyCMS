@@ -14,44 +14,12 @@
 */
 
 error_reporting('E_ALL & ~E_NOTICE');
-ini_set('display_errors', 1);
-
-define('START_PATH', dirname(__FILE__));
-define('APPLICATION_PATH', dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))) . '/Application');
-define('LIBRARY_PATH;', APPLICATION_PATH . '/Library');
-
-$host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : null;
-$ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
-
-$basename = '//' . $_SERVER['SERVER_NAME'];
-
-if ($basename == '//localhost') {
-    $basename = $basename . '/name-brokers/public_html';
-}
-
-define('DEVELOPMENT', (
-        $host == 'localhost' ||
-        $host == '127.0.0.1' ||
-        strstr($host, '192.168.1.') ||
-        strstr($host, '192.168.0.') ? true : false));
+ini_set('display_errors', 0);
 
 
-if (DEVELOPMENT) {
-    $conf = parse_ini_file(APPLICATION_PATH . '/config.ini', true);
-} else {
-    $conf = parse_ini_file(APPLICATION_PATH . '/config.live.ini', true);
-}
+require_once '../../../helpers/MysqliDb.php';
 
-//required files
-// require_once APPLICATION_PATH . '/core.php';
-// require_once APPLICATION_PATH . '/functions.php';
-
-// echo START_PATH . "<br />";
-// echo APPLICATION_PATH;
-
-require_once APPLICATION_PATH . '/MysqliDb.php';
-
-$db = new Mysqlidb ($conf['db']['host'], $conf['db']['user'], $conf['db']['pass'], $conf['db']['name']);
+//$db = new Mysqlidb ($conf['db']['host'], $conf['db']['user'], $conf['db']['pass'], $conf['db']['name']);
 
 /**
  * Generate and return a random string

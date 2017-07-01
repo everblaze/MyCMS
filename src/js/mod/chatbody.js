@@ -136,9 +136,9 @@ function createChatWindow(chatwindow){
 };
 
 if(document.location.hostname == "localhost"){
-    var apiUrl = '//' +document.location.hostname + '/name-brokers/public_html/domains/modules/chat/lib/';
+    var apiUrl = '//' +document.location.hostname + '/mycms/modules/chat/lib/';
 } else {
-    var apiUrl = '//' +document.location.hostname + '/domains/modules/chat/lib/';
+    var apiUrl = '//' +document.location.hostname + '/mycms/modules/chat/lib/';
 }
 
 function _getlastCSID(array){
@@ -366,5 +366,5 @@ function textAreaAdjust(e, o, s) {
 }
 
 $(function(){
-	createChatWindow(7);
+	createChatWindow('693470949831206778087062600775');
 });
