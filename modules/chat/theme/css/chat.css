@@ -133,6 +133,14 @@ body {
     position: absolute;
     z-index: 1000px;
 
+        border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
 }
 
 .textareadiv {
