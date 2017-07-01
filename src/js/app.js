@@ -4,6 +4,7 @@ define('app', function(require, exports, module){
 
     require('footable');
     require('datetimepicker');
+    require('chatbody');
 
     // require('fastclick');
     // require('chart');
@@ -68,7 +69,7 @@ define('app', function(require, exports, module){
 
             //alert(chatbody);
 
-            $('body').append(chatbody);
+            /*$('body').append(chatbody);
             $(function(){
                 $("#addClass").click(function () {
                     $('#qnimate').addClass('popup-box-on');
@@ -77,7 +78,7 @@ define('app', function(require, exports, module){
                 $("#removeClass").click(function () {
                     $('#qnimate').removeClass('popup-box-on');
                 });
-            });
+            });*/
 
         });
 

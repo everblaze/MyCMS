@@ -7,7 +7,7 @@
  * @Author: Oliver Bob Lagumen
  * @Date:   2017-05-13 09:58:30
  * @Last Modified by:   Oliver Bob Lagumen
- * @Last Modified time: 2017-06-30 21:54:37
+ * @Last Modified time: 2017-06-30 22:27:56
  */
 
 require_once('helpers/MysqliDb.php');
@@ -46,7 +46,7 @@ if($status=='pending'){
 
 	echo '
 	<!-- Chat Interface -->
-	<link rel="stylesheet" type="text/css" href="assets/css/chat_fb_theme.css">
+	<link rel="stylesheet" type="text/css" href="modules/chat/theme/css/chat.css">
 	';
 }
 

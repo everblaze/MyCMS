@@ -132,7 +132,8 @@ requirejs.config({
             ]
         },
         chatbody: {
-            exports: 'chatbody'
+            exports: 'chatbody',
+            deps:['jquery']
         },
         templates: {
             exports: 'templates'
