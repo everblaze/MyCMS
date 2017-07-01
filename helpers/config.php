@@ -3,7 +3,7 @@
  * @Author: Oliver Bob Lagumen
  * @Date:   2017-05-15 20:52:34
  * @Last Modified by:   Oliver Bob Lagumen
- * @Last Modified time: 2017-06-30 21:59:00
+ * @Last Modified time: 2017-06-30 22:08:54
  */
 
 $whitelist = array(
@@ -20,15 +20,15 @@ name = 'name_brokers_v2'
 */
 
 if(!in_array($_SERVER['REMOTE_ADDR'], $whitelist)){
-	define("DB_HOST", "oliverbob_br'");
-	define("DB_USER", "localhost");
+	define("DB_HOST", "localhost'");
+	define("DB_USER", "oliverbob_br");
 	define("DB_PASS", "m4U.Net.@64!");
 	define("DB_NAME", "oliverbob_br");
 } else {
 	define("DB_HOST", "localhost");
 	define("DB_USER", "root");
 	define("DB_PASS", "");
-	define("DB_NAME", "name_brokers_v2");
+	define("DB_NAME", "local_br");
 
 	error_reporting(E_ALL & E_NOTICE);
 }
